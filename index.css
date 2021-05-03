@@ -1,16 +1,26 @@
 body {
     background-color: rgb(108, 88, 238);
     text-align: center;
+    padding: 7px;
 }
 
 h1 {
-    outline-style: solid;
+    border: 5px solid;
+    font-size: 70px;
+    padding: 7px;
 }
 
 h4 {
-    outline-style: dotted;
+    border: 5px dotted;
+    font-size: 25px;
     font-weight: bold;
     font-style: italic;
+    padding: 7px;
+}
+
+a {
+    font-size: 25px;
+    padding: 7px;
 }
 
 a:link {
