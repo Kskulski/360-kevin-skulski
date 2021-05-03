@@ -1,9 +1,22 @@
 body {
-    color: darkslateblue;
-    margin: 4px;
-
+    background-color: rgb(108, 88, 238);
+    text-align: center;
 }
 
 h1 {
-    margin: 4px;
+    outline-style: solid;
+}
+
+h4 {
+    outline-style: dotted;
+    font-weight: bold;
+    font-style: italic;
+}
+
+a:link {
+    color: darkmagenta;
+}
+
+a:visited {
+    color: darkblue;
 }
