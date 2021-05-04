@@ -1,3 +1,5 @@
+@import url(../index.css);
+
 h1 {
     text-align: center;
 }
@@ -9,8 +11,4 @@ h2 {
 p {
     text-align: right;
     color: goldenrod;
-}
-
-body{
-    background-color: rgb(108, 88, 238);
 }
