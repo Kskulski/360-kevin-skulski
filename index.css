@@ -18,6 +18,21 @@ h4 {
     padding: 7px;
 }
 
+p {
+    font-size: 20px;
+    padding: 7px;
+}
+
+ol {
+    font-size: 20px;
+    padding: 7px;
+}
+
+ul {
+    font-size: 20px;
+    padding: 7px;
+}
+
 a {
     font-size: 25px;
     padding: 7px;

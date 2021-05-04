@@ -11,13 +11,10 @@ img {
     padding: 7px;
 }
 
-p {
-    font-size: 20px;
-    padding: 7px;
-}
-
 ul {
     list-style-type: square;
+}
+
+a {
     font-size: 20px;
-    padding: 7px;
 }
