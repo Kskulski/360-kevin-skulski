@@ -1,0 +1,73 @@
+//function url: https://kskulski-reflection-recorder-api.azurewebsites.net/api/HttpTrigger1
+
+const mongodb = require('mongodb');
+const uri = 'mongodb+srv://kskulski:longpassword@cluster0.oxzlv.mongodb.net/Reflections?retryWrites=true&w=majority';
+
+module.exports = function (context, req) {
+    const name = (req.query.name || (req.body && req.body.name));
+    const week = (req.query.week || (req.body && req.body.week));
+    context.log(name);
+    context.log(week);
+    context.log(req.method);
+    context.log('Running');
+    if (name != null) {
+        mongodb.MongoClient.connect(uri, function(error, client) {
+            if (error) {
+            context.log('Failed to connect');
+            context.res = { status: 500, body: res.stack }
+            return context.done();
+            }
+            context.log('Connected');
+            const person = client.db('Reflections').collection(name)
+            if (req.method === 'GET') {
+                if (week){
+                    person.findOne({'week': week}, function(error, docs) {
+                        if (error) {
+                            context.log('Error running query');
+                            context.res = { status: 500, body: res.stack }
+                            return context.done();
+                        }
+                        context.log('Success!');
+                        context.res = {
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ res: docs })
+                        };
+                        context.done();     
+                    });
+                } else {
+                    person.find().toArray(function(error, docs) {
+                        if (error) {
+                            context.log('Error running query');
+                            context.res = { status: 500, body: res.stack }
+                            return context.done();
+                        }
+                        context.log('Success!');
+                        context.res = {
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ res: docs })
+                        };
+                        context.done();     
+                    });
+                };
+            } else if (req.method === 'POST') {
+                context.log('test')
+                person.insertOne([
+                    {
+                        'week': week
+                    },
+                    {
+                        'content': req.body.content
+                    }
+                ])
+                context.res = { status: 500, body: res.stack }
+                return context.done();
+            };
+        });
+    } else {
+        const message = 'Hello World! This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.'
+        context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: message
+        };
+    };
+};
