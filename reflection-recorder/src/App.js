@@ -17,7 +17,6 @@ class App extends Component {
     console.log(this.state)
     event.preventDefault()
     var url = 'https://kskulski-reflection-recorder-api.azurewebsites.net/api/HttpTrigger1'
-    const weekNumber = this.state.week.split(' ')
 
     if (this.state.action === 'Read') {
       url = url + '?name=' + this.state.lastName + '&week=' + this.state.week
