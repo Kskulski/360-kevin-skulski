@@ -1,3 +1,8 @@
+Reflection Recorder Final Project
+Created by Kevin Skulski
+Email: kevinpskulski@lewisu.edu
+Credit to Dmitri Pavlutin for the Reactjs Form example.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
